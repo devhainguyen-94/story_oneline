@@ -5,7 +5,6 @@ User = settings.AUTH_USER_MODEL
 from django.conf import settings
 class Role(models.Model):
     name = models.TextField()
-    role_name = models.TextField()
     # created_by = models.ForeignKey(User, related_name='cre', on_delete=models.CASCADE)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -13,14 +12,15 @@ class Role(models.Model):
         ordering = ['created_at']
 class CustomUser(AbstractUser):
     # Add custom fields here, if needed
-    # ROLES = [
-    #     ('admin', 'Administrator'),
-    #     ('editor', 'Editor'),
-    #     ('viewer', 'Viewer'),
-    # ]
+    ROLES = [
+        ('admin', 'Administrator'),
+        ('editor', 'Editor'),
+        ('viewer', 'Viewer'),
+    ]
 
-    role = models.ForeignKey(Role, related_name='role', on_delete=models.CASCADE)
-
+    # role = models.ForeignKey(Role, related_name='role', on_delete=models.CASCADE)
+    role = models.CharField(
+        max_length=20, choices=ROLES, default=ROLES[0][0])
     def __str__(self):
         return self.username
 

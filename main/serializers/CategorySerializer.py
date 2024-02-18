@@ -1,15 +1,14 @@
-from rest_framework import serializers
-from main.models import Category
-
-
+from rest_framework import serializers ,permissions
+from main.models import Category , CustomUser
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['id','name', 'created_by']
     id = serializers.IntegerField(read_only=True)
-    created_by = serializers.ReadOnlyField(source='created_by.username')
+    created_by = serializers.ReadOnlyField(source='CustomeUser')
     name = serializers.CharField(required=True)
-
+    permission_classes = [permissions.IsAuthenticatedOrReadOnly]
+    extra_kwargs = {'created_by': {'default': serializers.CurrentUserDefault()}}
     def create(self, validated_data):
         """
         Create and return a new `Snippet` instance, given the validated data.

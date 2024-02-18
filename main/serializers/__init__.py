@@ -1,1 +1,2 @@
-from .CategorySerialzer import *
+from .CategorySerializer import CategorySerializer
+from .UserSerializer import UserSerializer

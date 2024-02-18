@@ -1,11 +1,11 @@
 from rest_framework import serializers
-from .main.models import Category
+from main.models import Category
 
 
-class CategorySrializer(serializers.ModelSerializer):
+class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
-        fields = ['name', 'created_by', ]
+        fields = ['id','name', 'created_by']
     id = serializers.IntegerField(read_only=True)
     created_by = serializers.ReadOnlyField(source='created_by.username')
     name = serializers.CharField(required=True)

@@ -22,6 +22,15 @@ class CategoryViewSet(viewsets.ModelViewSet):
     # def highlight(self, request, *args, **kwargs):
     #     snippet = self.get_object()
     #     return Response(snippet.highlighted)
+<<<<<<< HEAD
 
     def perform_create(self, serializer):
         serializer.save(created_by=self.request.user)
+=======
+    def save(self, *args ,**kwargs):
+        return 1
+    def perform_create(self, serializer):
+        userCustomer=CategorySerializer(data = serializer)
+        if userCustomer.is_valid():
+            userCustomer.create(created_by=self.request.user)
+>>>>>>> 8cdfbfc (category)

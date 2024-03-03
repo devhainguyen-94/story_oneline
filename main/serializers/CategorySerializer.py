@@ -1,11 +1,13 @@
 from rest_framework import serializers ,permissions
 from main.models import Category , CustomUser
+from main.serializers.UserSerializer import UserSerializer
 class CategorySerializer(serializers.ModelSerializer):
     class Meta:
         model = Category
         fields = ['id','name', 'created_by']
+        # read_only_fields = ('created_by',)
     id = serializers.IntegerField(read_only=True)
-    created_by = serializers.ReadOnlyField(source='CustomeUser')
+    # created_by = UserSerializer()
     name = serializers.CharField(required=True)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     extra_kwargs = {'created_by': {'default': serializers.CurrentUserDefault()}}

@@ -5,9 +5,11 @@ from .views import CategoryViewSet
 from rest_framework.routers import DefaultRouter
 from rest_framework.urlpatterns import format_suffix_patterns
 router = DefaultRouter()
-router.register(r'category', CategoryViewSet, basename='category')
+# router.register(r'category', CategoryViewSet, basename='category')
 urlpatterns = [
       path('', include(router.urls)),
+      path('category/', CategoryViewSet.CategoryListCreateAPIView.as_view(), name='category-list-create'),
+      path('category/<int:pk>/', CategoryViewSet.CategoryRetrieveUpdateDestroyAPIView.as_view(), name='category-detail'),
 #     path('test', views.index, name='index'),
 #     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
 #     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),

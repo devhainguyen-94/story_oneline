@@ -10,10 +10,10 @@ urlpatterns = [
       path('', include(router.urls)),
       path('category/', CategoryViewSet.CategoryListCreateAPIView.as_view(), name='category-list-create'),
       path('category/<int:pk>/', CategoryViewSet.CategoryRetrieveUpdateDestroyAPIView.as_view(), name='category-detail'),
-#     path('test', views.index, name='index'),
-#     path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
-#     path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
-#     path('api/register/', register_user, name='register'),
+      path('category/<int:category_id>/', CategoryViewSet.CategoryDeleteAPIView.as_view(), name='category-delete'),
+      path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    # path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
+    # path('api/register/', register_user, name='register'),
       # path('api-auth/', include('rest_framework.urls')),
 ]
 

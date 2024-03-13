@@ -1,9 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DBNavigator.Project.DDLFileAttachmentManager">
-    <mappings />
-    <preferences />
-  </component>
   <component name="DBNavigator.Project.DataEditorManager">
     <record-view-column-sorting-type value="BY_INDEX" />
     <value-preview-text-wrapping value="false" />
@@ -24,14 +20,7 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files>
-      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/main_book_category" />
-      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/main_role" />
-      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/main_category" />
-      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/main_chapter" />
-      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/auth_permission" />
-      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/main_customuser" />
-    </open-files>
+    <open-files />
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="34fe75c1-4c06-4efe-8489-65963fc7c689" />
@@ -115,10 +104,9 @@
           <tcp-host-address value="" />
           <tcp-port-from value="4000" />
           <tcp-port-to value="4999" />
-          <debugger-type value="JDBC" />
         </debugger>
         <object-filters hide-empty-schemas="false" hide-pseudo-columns="false" hide-audit-columns="false">
-          <object-type-filter use-master-settings="true">
+          <object-type-filter>
             <object-type name="SCHEMA" enabled="true" />
             <object-type name="USER" enabled="true" />
             <object-type name="ROLE" enabled="true" />
@@ -494,6 +482,9 @@
         <compile-dependencies value="ASK" />
         <always-show-controls value="false" />
       </compiler>
+      <debugger>
+        <debugger-type value="JDBC" />
+      </debugger>
     </operation-settings>
     <ddl-file-settings>
       <extensions>

@@ -2,7 +2,7 @@
 
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-
+from .models import Category
 from .models import CustomUser
 
 class CustomUserAdmin(UserAdmin):
@@ -17,5 +17,11 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('role',)
         })
     )
- 
+
+class CategoryAdmin(admin.ModelAdmin):
+    list_display = ['id', 'name', 'created_by', 'created_at']  # Các trường bạn muốn hiển thị trong danh sách
+    search_fields = ['name']  # Cho phép tìm kiếm theo tên
+    list_filter = ['created_at']  # Bộ lọc dựa trên thời gian tạo
+
 admin.site.register(CustomUser, CustomUserAdmin)
+admin.site.register(Category, CategoryAdmin)

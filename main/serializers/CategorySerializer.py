@@ -7,7 +7,9 @@ class CategorySerializer(serializers.ModelSerializer):
         fields = ['id','name', 'created_by']
         # read_only_fields = ('created_by',)
     id = serializers.IntegerField(read_only=True)
-    # created_by = UserSerializer()
+    created_by = serializers.HiddenField(
+        default=serializers.CurrentUserDefault()
+    )
     name = serializers.CharField(required=True)
     permission_classes = [permissions.IsAuthenticatedOrReadOnly]
     extra_kwargs = {'created_by': {'default': serializers.CurrentUserDefault()}}
@@ -21,10 +23,6 @@ class CategorySerializer(serializers.ModelSerializer):
         """
         Update and return an existing `Snippet` instance, given the validated data.
         """
-        instance.name = validated_data.get('name', instance.title)
-        # instance.code = validated_data.get('code', instance.code)
-        # instance.linenos = validated_data.get('linenos', instance.linenos)
-        # instance.language = validated_data.get('language', instance.language)
-        # instance.style = validated_data.get('style', instance.style)
+        instance.name = validated_data.get('name', instance.name)
         instance.save()
         return instance

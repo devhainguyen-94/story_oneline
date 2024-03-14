@@ -2,11 +2,12 @@ from rest_framework import generics
 from main.models import Category
 from main.serializers import CategorySerializer
 from rest_framework.permissions import IsAuthenticated
+from rest_framework import mixins , viewsets
 from rest_framework.decorators import api_view, permission_classes
 from main.permissions import IsOwner
 from rest_framework.views import APIView
 from rest_framework.response import Response
-class CategoryListCreateAPIView(generics.ListCreateAPIView):
+class CategoryListCreateAPIView(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
     permission_classes = [IsAuthenticated]

@@ -5,15 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40d6cb89-c3bf-4ec0-ae84-3c5f2e4ba197" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main/permissions.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/admin.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/admin.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/serializers/CategorySerializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/serializers/CategorySerializer.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/views/CategoryViewSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views/CategoryViewSet.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storyOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/storyOnline/settings.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,7 +82,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
           <url>file://$PROJECT_DIR$/main/views/CategoryViewSet.py</url>
-          <line>31</line>
+          <line>32</line>
           <option name="timeStamp" value="1" />
         </line-breakpoint>
       </breakpoints>

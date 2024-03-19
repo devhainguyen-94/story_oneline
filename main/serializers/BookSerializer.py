@@ -23,6 +23,8 @@ class BookSerializer(serializers.ModelSerializer):
         """
         Update and return an existing `Snippet` instance, given the validated data.
         """
-        instance.name = validated_data.get('name', instance.name)
+        instance.name = validated_data.get('title', instance.title)
+        instance.name = validated_data.get('description', instance.description)
+        instance.name = validated_data.get('description', instance.description)
         instance.save()
         return instance

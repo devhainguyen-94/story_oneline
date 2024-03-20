@@ -11,6 +11,7 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import datetime
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -129,7 +130,11 @@ AUTH_USER_MODEL = 'main.CustomUser'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': (
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-    )
+    ),
+    'JWT_AUTH': {
+        'JWT_EXPIRATION_DELTA': datetime.timedelta(hours=24),  # Token hết hạn sau 1 giờ
+        'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),  # Token có thể làm mới trong vòng 7 ngày
+    }
 }
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'main.serializers.UserSerializer',

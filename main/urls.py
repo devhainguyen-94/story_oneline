@@ -2,10 +2,12 @@ from django.urls import path ,include
 from rest_framework_simplejwt import views as jwt_views
 # from . import views
 from .views.CategoryViewSet import CategoryListCreateAPIView
+from .views.BookViewSet import BookListCreateAPIView
 from rest_framework.routers import DefaultRouter
 from rest_framework.urlpatterns import format_suffix_patterns
 router = DefaultRouter()
 router.register(r'category', CategoryListCreateAPIView, basename='category')
+router.register(r'book', BookListCreateAPIView)
 urlpatterns = [
       path('', include(router.urls)),
       # path('category/', CategoryViewSet.CategoryListCreateAPIView.as_view(), name='category-list-create'),

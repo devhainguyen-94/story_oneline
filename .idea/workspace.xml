@@ -5,14 +5,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="40d6cb89-c3bf-4ec0-ae84-3c5f2e4ba197" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/main/views/BookViewSet.py" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dbnavigator.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dbnavigator.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/models.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/models.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/db.sqlite3" beforeDir="false" afterPath="$PROJECT_DIR$/db.sqlite3" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/main/serializers/BookSerializer.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/serializers/BookSerializer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/serializers/__init__.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/serializers/__init__.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/main/urls.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/urls.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/storyOnline/settings.py" beforeDir="false" afterPath="$PROJECT_DIR$/storyOnline/settings.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/main/views/BookViewSet.py" beforeDir="false" afterPath="$PROJECT_DIR$/main/views/BookViewSet.py" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,12 +48,13 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "git-widget-placeholder": "book-branch",
-    "last_opened_file_path": "/var/code/storyOnline/main/views",
+    "last_opened_file_path": "/var/code/storyOnline/main/serializers",
     "settings.editor.selected.configurable": "preferences.pluginManager"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/main/serializers" />
       <recent name="$PROJECT_DIR$/main/views" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -105,11 +103,6 @@
           <line>12</line>
           <log-expression expression="class CategoryDeleteAPIView(APIView):&#10;    permission_classes = [IsAuthenticated]&#10;&#10;    def delete(self, request, category_id):&#10;        try:&#10;            category = Category.objects.get(id=category_id)&#10;        except Category.DoesNotExist:&#10;            return Response({&quot;error&quot;: &quot;Category not found&quot;}, status=404)&#10;&#10;        ## Kiểm tra xem người dùng có quyền xóa category hay không&#10;        if category.created_by != request.user:&#10;            return Response({&quot;error&quot;: &quot;You do not have permission to delete this category11111&quot;}, status=403)&#10;&#10;        category.delete()&#10;        return Response({&quot;success&quot;: &quot;Category deleted successfully&quot;}, status=204)" language="Python" />
           <option name="timeStamp" value="2" />
-        </line-breakpoint>
-        <line-breakpoint enabled="true" suspend="THREAD" type="python-line">
-          <url>file://$PROJECT_DIR$/main/serializers/BookSerializer.py</url>
-          <line>19</line>
-          <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>
       <default-breakpoints>

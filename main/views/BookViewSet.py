@@ -9,4 +9,4 @@ class BookListCreateAPIView(viewsets.ModelViewSet):
     serializer_class = BookSerializer
     permission_classes = [IsAuthenticated]
     def perform_create(self, serializer):
-        serializer.save(auth_id = self.request.user)
+        serializer.save(auth = self.request.user)

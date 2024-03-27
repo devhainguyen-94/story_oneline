@@ -136,6 +136,10 @@ REST_FRAMEWORK = {
         'JWT_REFRESH_EXPIRATION_DELTA': datetime.timedelta(days=7),  # Token có thể làm mới trong vòng 7 ngày
     }
 }
+JWT_EXPIRATION_DELTA = datetime.timedelta(hours=1)
+SESSION_COOKIE_AGE = 3600
+# Thiết lập thời gian sống của token mới khi làm mới (ví dụ: 7 ngày)
+JWT_REFRESH_EXPIRATION_DELTA = datetime.timedelta(days=7)
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'main.serializers.UserSerializer',
 }

@@ -4,7 +4,7 @@ from main.serializers.UserSerializer import UserSerializer
 class BookSerializer(serializers.ModelSerializer):
     class Meta:
         model = Book
-        fields = ['id','title', 'auth', 'category']
+        fields = ['id','title', 'auth', 'category','image']
         # read_only_fields = ('created_by',)
     id = serializers.IntegerField(read_only=True)
     auth = serializers.HiddenField(
@@ -32,5 +32,8 @@ class BookSerializer(serializers.ModelSerializer):
         Update and return an existing `Snippet` instance, given the validated data.
         """
         instance.title = validated_data.get('title', instance.title)
+        instance.author = validated_data.get('author', instance.author)
+        instance.image = validated_data.get('image', instance.image)
+        instance.description = validated_data.get('description', instance.description)
         instance.save()
         return instance

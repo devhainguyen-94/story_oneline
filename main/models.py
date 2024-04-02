@@ -34,7 +34,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     auth =  models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to = 'media/images/books/')
     category = models.ManyToManyField(Category)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)

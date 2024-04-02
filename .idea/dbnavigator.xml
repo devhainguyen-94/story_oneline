@@ -20,7 +20,10 @@
     <last-used-providers />
   </component>
   <component name="DBNavigator.Project.DatabaseFileManager">
-    <open-files />
+    <open-files>
+      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/main_book" />
+      <object connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" object-ref="schemas/main/tables/main_book_category" />
+    </open-files>
   </component>
   <component name="DBNavigator.Project.DatabaseSessionManager">
     <connection id="34fe75c1-4c06-4efe-8489-65963fc7c689" />
@@ -29,6 +32,7 @@
     <filter-actions connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" dataset="main.main_chapter" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" dataset="main.main_category" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" dataset="main.main_customuser" active-filter-id="EMPTY_FILTER" />
+    <filter-actions connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" dataset="main.main_book" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" dataset="main.django_migrations" active-filter-id="" />
     <filter-actions connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" dataset="main.main_role" active-filter-id="EMPTY_FILTER" />
     <filter-actions connection-id="34fe75c1-4c06-4efe-8489-65963fc7c689" dataset="main.main_book_category" active-filter-id="EMPTY_FILTER" />

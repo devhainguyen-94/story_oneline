@@ -137,7 +137,7 @@ REST_FRAMEWORK = {
     }
 }
 JWT_EXPIRATION_DELTA = datetime.timedelta(hours=1)
-SESSION_COOKIE_AGE = 3600
+SESSION_COOKIE_AGE = 365000
 # Thiết lập thời gian sống của token mới khi làm mới (ví dụ: 7 ngày)
 JWT_REFRESH_EXPIRATION_DELTA = datetime.timedelta(days=7)
 REST_AUTH_SERIALIZERS = {
@@ -151,5 +151,4 @@ import os
 
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
-MEDIA_ROOT = os.path.join(BASE_DIR, 'images')
-MEDIA_URL = '/images/'
+MEDIA_ROOT = os.path.join(BASE_DIR, 'media')

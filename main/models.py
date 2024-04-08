@@ -42,7 +42,7 @@ class Book(models.Model):
 class Chapter(models.Model):
     number_chapter = models.IntegerField(default=0)
     content = models.TextField()
-    image = models.ImageField()
+    image = models.ImageField(upload_to='media/images/chapter/')
     title = models.CharField(max_length=200)
     description = models.TextField()
     book = models.ForeignKey(Book, on_delete = models.CASCADE)

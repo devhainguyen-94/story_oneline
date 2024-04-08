@@ -11,6 +11,8 @@ class ChapterListCreateAPIView(viewsets.ModelViewSet):
 
     def get_queryset(self):
         book_id = self.request.query_params.get('book_id')
-        return Chapter.objects.filter(book_id=book_id)
+        if book_id:
+            return Chapter.objects.filter(book_id=book_id)
+        return Chapter.objects.all()
     def perform_create(self, serializer):
         serializer.save(created_by = self.request.user)

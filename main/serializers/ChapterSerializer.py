@@ -30,7 +30,7 @@ class ChapterSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         """
-        Update and return an existing `Snippet` instance, given the validated data.
+        Update and return an existing `Chapter` instance, given the validated data.
         """
         if 'image' in validated_data:
             instance.image = validated_data.get('image', instance.image)

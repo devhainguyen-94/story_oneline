@@ -8,6 +8,13 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.11"
 django = "^5.0.1"
+djangorestframework = "^3.14.0"
+markdown = "^3.5.2"
+django-filter = "^23.5"
+rest-framework-simplejwt = "^0.0.2"
+djangorestframework-simplejwt = "^5.3.1"
+pillow = "^10.2.0"
+pyttsx3 = "^2.90"
 
 
 [build-system]

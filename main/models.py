@@ -34,7 +34,7 @@ class Book(models.Model):
     title = models.CharField(max_length=200)
     auth =  models.ForeignKey(User, on_delete=models.CASCADE)
     description = models.TextField()
-    image = models.ImageField(upload_to = 'media/images/books/')
+    image = models.ImageField(upload_to = 'images/books/')
     category = models.ManyToManyField(Category)
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -42,7 +42,7 @@ class Book(models.Model):
 class Chapter(models.Model):
     number_chapter = models.IntegerField(default=0)
     content = models.TextField()
-    image = models.ImageField(upload_to='media/images/chapter/')
+    image = models.ImageField(upload_to='images/chapter/')
     title = models.CharField(max_length=200)
     description = models.TextField()
     book = models.ForeignKey(Book, on_delete = models.CASCADE)

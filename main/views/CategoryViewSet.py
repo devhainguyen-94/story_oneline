@@ -18,7 +18,6 @@ class CategoryListCreateAPIView(viewsets.ModelViewSet):
         print(request)
         # Kiểm tra xem người dùng hiện tại có phải là người tạo ra category hay không
         if instance.created_by != request.user:
-            print(request)
             return Response({"error": "You do not have permission to delete this category"},
                             status=status.HTTP_403_FORBIDDEN)
         self.perform_destroy(instance)
@@ -41,6 +40,5 @@ class CategoryDeleteAPIView(APIView):
         # Kiểm tra xem người dùng có quyền xóa category hay không
         if category.created_by != request.user:
             return Response({"error": "You do not have permission to delete this category11111"}, status=403)
-
         category.delete()
         return Response({"success": "Category deleted successfully"}, status=204)

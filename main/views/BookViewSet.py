@@ -10,3 +10,13 @@ class BookListCreateAPIView(viewsets.ModelViewSet):
     permission_classes = [IsAuthenticated]
     def perform_create(self, serializer):
         serializer.save(auth = self.request.user)
+
+    def destroy(self, request, *args, **kwargs):
+        instance = self.get_object()
+        print(request)
+        # Kiểm tra xem người dùng hiện tại có phải là người tạo ra category hay không
+        if instance.created_by != request.user:
+            return Response({"error": "You do not have permission to delete this book"},
+                            status=status.HTTP_403_FORBIDDEN)
+        self.perform_destroy(instance)
+        return Response({"message": "Book deleted successfully"}, status=status.HTTP_204_NO_CONTENT)

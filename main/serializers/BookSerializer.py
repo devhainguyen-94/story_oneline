@@ -18,12 +18,14 @@ class BookSerializer(serializers.ModelSerializer):
         """
         Create and return a new `Snippet` instance, given the validated data.
         """
-        categories_data = validated_data.pop('category')  # Lấy danh sách các category từ dữ liệu đã được xác nhận
-        book = Book.objects.create(**validated_data)  # Tạo một đối tượng Book mới
+        categories_data = validated_data.pop('category', [])
 
-        # Gán các category cho đối tượng Book sử dụng phương thức set()
-        book.category.set(categories_data)
+        # Tạo một đối tượng Book từ dữ liệu đã được validate
+        book = Book.objects.create(**validated_data)
 
+        # Liên kết các category với đối tượng Book mới được tạo
+        for category in categories_data:
+            book.category.add(category)
         return book
         # return Book.objects.create(**validated_data)
 

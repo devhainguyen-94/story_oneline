@@ -30,9 +30,10 @@ class BookListCreateAPIView(viewsets.ModelViewSet):
         self.perform_destroy(instance)
         return Response({"message": "Book deleted successfully"}, status=status.HTTP_204_NO_CONTENT)
 
-    def test(self, request=None, book_id=None):
+    def test(self, request=None):
         try:
             # Lấy ra đối tượng Book từ cơ sở dữ liệu dựa trên book_id
+            book_id = request.query_params.get('book_id')
             book = Book.objects.get(pk=book_id)
 
             # Sử dụng một Serializer để serialize các category của cuốn sách

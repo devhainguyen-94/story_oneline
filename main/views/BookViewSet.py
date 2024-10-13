@@ -6,6 +6,8 @@ from rest_framework import mixins , viewsets
 from django.http import HttpResponse
 from rest_framework.renderers import JSONRenderer
 from django.http import JsonResponse
+import gtts
+from pydub import AudioSegment
 class BookListCreateAPIView(viewsets.ModelViewSet):
     queryset = Book.objects.all()
     serializer_class = BookSerializer
@@ -33,17 +35,28 @@ class BookListCreateAPIView(viewsets.ModelViewSet):
     def test(self, request=None):
         try:
             # Lấy ra đối tượng Book từ cơ sở dữ liệu dựa trên book_id
-            book_id = request.query_params.get('book_id')
-            book = Book.objects.get(pk=book_id)
+            t1 = gtts.gTTS(text="t là máy đọc truyện  " , lang='vi' )
+            t1.save("upload/welcome.mp3")
+            # playsound("welcome.mp3")
 
-            # Sử dụng một Serializer để serialize các category của cuốn sách
-            serializer = CategorySerializer(book.category.all(), many=True)
+            # # Tải các tệp MP3
+            main_audio = AudioSegment.from_file("welcome2.mp3")
+            background_music = AudioSegment.from_file("nhacnen.mp3")
 
-            # Chuyển đổi kết quả thành chuỗi JSON
-            json_data = JSONRenderer().render(serializer.data)
+            # Điều chỉnh âm lượng của nhạc nền
+            background_music = background_music - 5  # Giảm âm lượng nhạc nền xuống 20dB
 
-            # In ra chuỗi JSON hoặc trả về nó như là một phản hồi JSON
-            print(json_data)
+            # Lặp lại nhạc nền cho đến khi bằng độ dài của tệp chính
+            background_music = background_music * (len(main_audio) // len(background_music) + 1)
+
+            # Cắt nhạc nền sao cho có độ dài bằng với tệp chính
+            background_music = background_music[:len(main_audio)]
+
+            # Trộn nhạc nền vào tệp chính
+            combined = main_audio.overlay(background_music)
+
+            # Xuất tệp âm thanh kết hợp
+            combined.export("output_with_background2.mp3", format="mp3")
             return JsonResponse(serializer.data, safe=False)  # Sử dụng JsonResponse để trả về JSON
         except Book.DoesNotExist:
             return HttpResponse(f"Book with ID {book_id} does not exist", status=404)

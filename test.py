@@ -21,4 +21,4 @@ background_music = background_music[:len(main_audio)]
 combined = main_audio.overlay(background_music)
 
 # Xuất tệp âm thanh kết hợp
-combined.export("output_with_background.mp3", format="mp3")
+combined.export("output_with_background2.mp3", format="mp3")

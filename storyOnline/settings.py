@@ -156,3 +156,15 @@ import os
 BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
+
+import cloudinary
+import cloudinary.uploader
+import cloudinary.api
+
+CLOUDINARY_STORAGE = {
+    'CLOUD_NAME': 'dwtcdblb7',       # Thay 'your_cloud_name' bằng Cloudinary cloud name của bạn
+    'API_KEY': '696585576229197',             # Thay 'your_api_key' bằng API key của bạn
+    'API_SECRET': 'jv3B694lhlR5yGQx3oTB5iWzvn8',       # Thay 'your_api_secret' bằng API secret của bạn
+}
+
+DEFAULT_FILE_STORAGE = 'cloudinary.storage.MediaCloudinaryStorage'

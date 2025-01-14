@@ -6,7 +6,13 @@ RUN apk add --no-cache --virtual .build-deps \
     libffi-dev jpeg-dev zlib-dev
 RUN apk add --no-cache ffmpeg
 WORKDIR /usr/src/app
-COPY poetry.lock pyproject.toml /usr/src/app/
-RUN pip3 install poetry
-RUN poetry config virtualenvs.create false
+COPY ./requirements.txt /app/
+RUN pip install -r requirements.txt
+
+COPY . /app
+
+ENTRYPOINT [ "gunicorn", "core.wsgi", "-b", "0.0.0.0:8000"]
+# COPY poetry.lock pyproject.toml /usr/src/app/
+# RUN pip3 install poetry
+# RUN poetry config virtualenvs.create false
 # RUN poetry install -n --no-ansi

@@ -1,5 +1,5 @@
 from rest_framework import generics
-from main.models import Book
+from main.models import Book ,Category
 from main.serializers import BookSerializer
 from rest_framework.permissions import IsAuthenticated
 from rest_framework import mixins , viewsets
@@ -11,6 +11,13 @@ class BookListCreateAPIView(viewsets.ModelViewSet):
     def perform_create(self, serializer):
         serializer.save(auth = self.request.user)
 
+    def get_queryset(self):
+        category_id = self.request.query_params.get('category_id')
+        if category_id:
+            category = Category.objects.get(id=category_id)
+            return category.book_set.all()
+            # return Book.objects.filter(category_id=category_id)
+        return Book.objects.all()
     def destroy(self, request, *args, **kwargs):
         instance = self.get_object()
         print(request)

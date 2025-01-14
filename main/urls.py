@@ -16,6 +16,8 @@ urlpatterns = [
       # path('category/<int:pk>/', CategoryViewSet.CategoryRetrieveUpdateDestroyAPIView.as_view(), name='category-detail'),
       # path('category/<int:category_id>/', CategoryViewSet.CategoryDeleteAPIView.as_view(), name='category-delete'),
       path('api/token/', jwt_views.TokenObtainPairView.as_view(), name='token_obtain_pair'),
+      # path('test/', BookListCreateAPIView.test, name='test'),
+      path('test/', BookListCreateAPIView.as_view({'get': 'test'}), name='book-detail')
     # path('api/token/refresh/', jwt_views.TokenRefreshView.as_view(), name='token_refresh'),
     # path('api/register/', register_user, name='register'),
       # path('api-auth/', include('rest_framework.urls')),

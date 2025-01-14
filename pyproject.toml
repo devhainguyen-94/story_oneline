@@ -15,6 +15,10 @@ rest-framework-simplejwt = "^0.0.2"
 djangorestframework-simplejwt = "^5.3.1"
 pillow = "^10.2.0"
 pyttsx3 = "^2.90"
+pydub = "^0.25.1"
+ffmpeg-downloader = "^0.3.0"
+gtts = "^2.5.1"
+cloudinary = "^1.41.0"
 
 
 [build-system]

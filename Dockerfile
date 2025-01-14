@@ -6,10 +6,10 @@ RUN apk add --no-cache --virtual .build-deps \
     libffi-dev jpeg-dev zlib-dev
 RUN apk add --no-cache ffmpeg
 WORKDIR /usr/src/app
-COPY ./requirements.txt /app/
-RUN pip install -r requirements.txt
+# COPY ./requirements.txt /app/
+# RUN pip install -r requirements.txt
 
-COPY . /app
+# COPY . /app
 
 ENTRYPOINT [ "gunicorn", "core.wsgi", "-b", "0.0.0.0:8000"]
 # COPY poetry.lock pyproject.toml /usr/src/app/
